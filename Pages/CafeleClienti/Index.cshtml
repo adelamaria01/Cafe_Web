@@ -1,0 +1,162 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.CafeleClienti.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <link rel="stylesheet" href="~/css/IndexCafeleClienti.css" asp-append-version="true" />
+</head>
+<body>
+    <!--SECTIUNE PENTRU WELCOME-->
+    <section>
+        <h1 class="text-muted">Hi there, caffeine lover!</h1>
+        <p class="lead">Whether you're in the mood for our classic coffee blends or feeling adventurous and want to create your own custom cup, we've got you covered.</p>
+    </section>
+
+    <!--SECTIUNE PENTRU SEARCH BAR-->
+    <section>
+        <form asp-page="./Index" method="get">
+            <div class="form-actions no-color" id="form">
+                <input id="element1" type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Find coffee by name..." />
+                <p></p>
+                <div id="element2">
+                    <input type="submit" value="Search" class="btn btn-primary" /> |
+                    <a asp-page="./Index">Back to full List</a>
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+    <!--SECTIUNE PENTRU BUTOANE-->
+    <section>
+        <div class="card mb-3">
+            <img src="~/imagini/IndexCafeleClienti.png" class="card-img-top" alt="..." style="width:100%">
+            <div class="card-body">
+                <h5 class="card-title text-center">"Espresso" yourself</h5>
+                <p class="card-text">Get ready to  make your own perfect cup with our easy-to-follow instructions and don't hesitate to share your story with us.</p>
+                <p></p>
+                <form method="get" id="form2">
+                    <div class="form-group">
+                        <li class="list-group-item">
+                            <button type="button" class="btn btn-primary"><a class="link" asp-area="" asp-page="/CafeleClienti/Create">Create your coffee</a></button>
+                            <button type="button" class="btn btn-primary"><a class="link" asp-area="" asp-page="/Story">My story</a></button>
+                        </li>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!--SECTIUNE PENTRU CAFELE-->
+    <section>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var item in Model.CafeaD.CafeleClienti)
+            {
+                var cafeaDataId = $"cafeaData{item.ID}";
+                var cafeaData = $"{item.DenumireCafea},{item.TipCafea.Tip},{item.TipBoabe.DenumireBoabe},{item.TipLapte.DenumireLapte},{item.TipAroma.DenumireAroma},{item.TipTopping.DenumireTopping},{item.Marime.MarimeMl},{item.Marime.Pret}";
+                cafeaData = cafeaData.Replace(" ", "");
+
+                <div class="col" data-aos="zoom-in-down" data-aos-duration="1000">
+                    <div class="card h-100 text-center">
+                        <img src="~/imagini/cup.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.DenumireCafea</h5>
+                            <p class="card-text">Coffee type: @item.TipCafea.Tip</p>
+                            <p class="card-text">Beans: @item.TipBoabe.DenumireBoabe</p>
+                            <p class="card-text">Milk: @item.TipLapte.DenumireLapte</p>
+                            <p class="card-text">Flavour: @item.TipAroma.DenumireAroma</p>
+                            <p class="card-text">Topping: @item.TipTopping.DenumireTopping</p>
+                            <p class="card-text">Cup size: @item.Marime.MarimeMl</p>
+                            <p class="card-text">Price: @item.Marime.Pret</p>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="setCafeaData('@cafeaDataId')">
+                                Qr code
+                            </button>
+                            <p></p>
+                            @if (!(User.Identity.IsAuthenticated && User.IsInRole("Admin")))
+                            {
+                                <a class="fa-sharp fa-solid fa-pen" asp-page="./Edit" asp-route-id="@item.ID"></a>
+                               <a class="fa-sharp fa-solid fa-trash" asp-page="./Delete" asp-route-id="@item.ID"></a>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <!--Modal header-->
+                            <div class="modal-header text-center">
+                                <h1 class="modal-title">Generate Qr code</h1>
+                            </div>
+                            <form method="post" class="text-center">
+                                <div class="form-group">
+                                    <label class="col-form-label mt-4" for="inputDefault">1. Receive your unique QR code via email:</label>
+                                    <input type="text" class="form-control" value="@cafeaData" id="inputDefault" name="qr">
+                                    <input type="email" name="email" id="email" placeholder="VerveClient@mail.com">
+                                    <input type="submit" value="Send Email" class="btn btn-primary btn-sm" />
+                                </div>
+                            </form>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <label class="text-center">OR</label>
+
+                            <!--Modal body-->
+                            <div class="modal-body text-center">
+                                <div class="wrapper">
+                                    <div class="form">
+                                        <div class="form-group">
+                                            <label class="col-form-label mt-4" for="inputDefault">2. Generate your QR coffee code here:</label>
+                                            <input type="text" class="form-control" value="@cafeaData" id="inputDefault">
+                                        </div>
+                                        <p></p>
+                                        <button class="btn btn-primary btn-sm">Generate QR code</button>
+                                    </div>
+                                    <p></p>
+                                    <div class="qr-code" id="">
+                                        <img src="" alt="" id="sterge">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--Modal footer-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="stergeInput()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    function setCafeaData(cafeaDataId) {
+                        var inputDefault = document.getElementById("inputDefault");
+                        inputDefault.value = window[cafeaDataId];
+                    }
+
+                    var @cafeaDataId = "@cafeaData";
+                </script>
+
+
+            }
+        </div>
+
+        <script src="~/js/qrCode.js"></script>
+        <script>
+            function stergeInput() {
+                document.getElementById("inputDefault").value = "";
+                document.getElementById("sterge").src = "";
+            }
+
+        </script>
+    </section>
+    
+</body>
+

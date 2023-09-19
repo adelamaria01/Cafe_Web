@@ -1,0 +1,116 @@
+﻿
+
+@page
+@model Kovacs_Adela_Licenta.Pages.Povesti.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <head>
+        <link rel="stylesheet" href="~/css/Poveste.css" asp-append-version="true" />
+    </head>
+
+    <style>
+        .link {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        .chenar_transparent p{
+            background: rgba(255,255,255,0.25);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0 ,0.3);
+            backdrop-filter: blur(10px);
+            border: 1 px solid rgba(255, 255, 255, 0.18);
+            color:black;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!--SECTIUNE DOAR PENTRU ADMINISTATOR-->
+    <section>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <p></p>
+            <h1>Verve Administrator</h1>
+            <p>
+                <button type="button" class="btn btn-primary"><a class="link" asp-area="" asp-page="Create">Add a new story</a></button>
+            </p>
+        }
+        <hr />
+    </section>
+
+
+    <section>
+        <h1>Once upon a time...</h1>
+        <hr/>
+        <div class="card text-bg-dark chenar_transparent">
+            <img src="~/imagini/poveste7.jpg" class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <button type="button" class="btn btn-primary"><a class="link" asp-area="" asp-page="/Story">Tell your story!</a></button>
+
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <p></p>
+        <p></p>
+
+        @foreach (var item in Model.Poveste)
+        {
+
+            <div class="card mb-3" style="padding:10px; background-color:#a9c9e1" data-aos="fade-right">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="@item.Imagine" class="img-fluid" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Once upon a time...</h5>
+                                <p class="card-text">@item.text</p>
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <a class="fa-sharp fa-solid fa-pen" asp-page="./Edit" asp-route-id="@item.ID"></a>
+
+                                    <a class="fa-sharp fa-solid fa-trash" asp-page="./Delete" asp-route-id="@item.ID"></a>
+                                }
+                                <p class="card-text">
+                                    - One of our clients, @item.NumeClient, <cite title="Source Title">Verve story</cite>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+         
+        }
+
+    </section>
+
+    <section>
+        <hr/>
+        <h1>To be continued...</h1>
+        <hr />
+        <div class="card text-bg-dark chenar_transparent">
+            <img src="~/imagini/poveste4.jpg" class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <p class="card-text">
+                    Well, if life were a cup of coffee, "To be continued" would be like taking a sip and realizing that you still have plenty of delicious brew left to enjoy! 
+                    So let's raise a mug to all the exciting adventures and cliffhangers that keep us coming back for more. 
+                    Cheers to the next chapter!
+                </p>
+
+            </div>
+        </div>
+    </section>
+    
+
+
+</body>

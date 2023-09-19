@@ -1,0 +1,22 @@
+﻿body {
+    background: url(/imagini/FundalTabele.png) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.card-body a{
+    color:white;
+}
+
+.title-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin-right: 10px;
+}

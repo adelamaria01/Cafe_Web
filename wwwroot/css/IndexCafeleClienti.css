@@ -1,0 +1,58 @@
+﻿.card-img-top {
+    height: 150px;
+    width: 95px;
+    object-fit: cover;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputDefault {
+    display: none;
+}
+
+.qr-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form {
+    display: flex;
+    justify-content: center;
+}
+
+#element1 {
+    width: 50%;
+    height: 50px;
+    background-color: transparent;
+    display: inline-block;
+}
+
+#element2 {
+    display: inline-block;
+}
+
+.list-group-item {
+    display: inline-block;
+}
+
+#form2 {
+    text-align: center;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: white;
+}

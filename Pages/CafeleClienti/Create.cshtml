@@ -1,0 +1,191 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.CafeleClienti.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<head>
+    <style>
+        .spatiu {
+            margin-bottom: 70px;
+        }
+
+        .nav-pills a:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create a new coffee:</h1>
+    <hr />
+    <section>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-4">
+                    <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end" style="position: fixed;" style="margin-bottom: 70px;">
+                        <nav class="nav nav-pills flex-column">
+                            <h4>Complete each step:</h4>
+                            <a class="nav-link" href="#item-1">Step 1: Coffee name</a>
+                            <a class="nav-link" href="#item-2">Step 2: Coffee type</a>
+                            <a class="nav-link" href="#item-3">Step 3: Beans</a>
+                            <a class="nav-link" href="#item-4">Step 4: Milk</a>
+                            <a class="nav-link" href="#item-5">Step 5: Flavour</a>
+                            <a class="nav-link" href="#item-6">Step 6: Topping</a>
+                            <a class="nav-link" href="#item-7">Step 7: Cup size</a>
+                        </nav>
+                    </nav>
+                </div>
+
+                <div class="col-8">
+                    <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+                        <div id="item-1" class="spatiu">
+                            <div class="form-group">
+                                <label asp-for="CafeaClient.DenumireCafea" class="control-label">Coffee name</label>
+                                <input asp-for="CafeaClient.DenumireCafea" class="form-control" />
+                                <span asp-validation-for="CafeaClient.DenumireCafea" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-2" class="spatiu" data-aos="zoom-out-up" data-aos-duration="1000">
+                        <!--DROPDOWNLIST PENTRU TIP CAFEA-->
+                        <div class="form-group">
+                            <label asp-for="CafeaClient.TipCafeaID" class="control-label">Coffee type</label>
+                            <select asp-for="CafeaClient.TipCafeaID" class="form-control" asp-items="ViewBag.TipCafeaID">
+                            </select>
+                            <span asp-validation-for="CafeaClient.TipCafeaID" class="text-danger"></span>
+                        </div>
+                        <p></p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Coffee type:</h5>
+                                <p class="card-text">Decaf and regular coffee are two different types of coffee based on their caffeine content. Decaf coffee, short for decaffeinated coffee, is a type of coffee that has had most of the caffeine removed through a decaffeination process, typically using solvents like ethyl acetate or carbon dioxide. Regular coffee, on the other hand, is made from coffee beans that have not undergone the decaffeination process and thus contain caffeine.</p>
+                            </div>
+                            <img src="~/imagini/decaf_regular.jpg" class="card-img-bottom" alt="...">
+                        </div>
+
+                    </div>
+
+                    <div id="item-3" class="spatiu" data-aos="zoom-out-up" data-aos-duration="1000">
+                        <!--DROPDOWNLIST PENTRU TIP BOABE-->
+                        <div class="form-group">
+                            <label asp-for="CafeaClient.TipBoabeID" class="control-label">Beans</label>
+                            <select asp-for="CafeaClient.TipBoabeID" class="form-control" asp-items="ViewBag.TipBoabeID">
+                            </select>
+                            <span asp-validation-for="CafeaClient.TipBoabeID" class="text-danger"></span>
+                        </div>
+                        <p></p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Beans:</h5>
+                                <p class="card-text">Coffee beans come in different varieties and are grown in different regions, each with unique flavor profiles. Roasting, grinding, freshness, and storage are important factors that affect the taste and aroma of coffee.</p>
+                            </div>
+                            <img src="~/imagini/beans.jpg" class="card-img-bottom" alt="...">
+                        </div>
+                    </div>
+
+                    <div id="item-4" class="spatiu" data-aos="zoom-out-up" data-aos-duration="1000">
+                        <!--DROPDOWNLIST PENTRU TIP LAPTE-->
+                        <div class="form-group">
+                            <label asp-for="CafeaClient.TipLapteID" class="control-label">Milk</label>
+                            <select asp-for="CafeaClient.TipLapteID" class="form-control" asp-items="ViewBag.TipLapteID">
+                            </select>
+                            <span asp-validation-for="CafeaClient.TipLapteID" class="text-danger"></span>
+                        </div>
+                        <p></p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Milk:</h5>
+                                <p class="card-text">Adding milk can make coffee creamier and milder, as well as reduce its bitterness. Different types of milk, such as whole, almond, or soy, can be used to achieve different flavor profiles.</p>
+                            </div>
+                            <img src="~/imagini/milk.jpg" class="card-img-bottom" alt="...">
+                        </div>
+                    </div>
+
+                    <div id="item-5" class="spatiu" data-aos="zoom-out-up" data-aos-duration="1000">
+                        <!--DROPDOWNLIST PENTRU TIP AROMA-->
+                        <div class="form-group">
+                            <label asp-for="CafeaClient.TipAromaID" class="control-label">Flavour</label>
+                            <select asp-for="CafeaClient.TipAromaID" class="form-control" asp-items="ViewBag.TipAromaID">
+                            </select>
+                            <span asp-validation-for="CafeaClient.TipAromaID" class="text-danger"></span>
+                        </div>
+                        <p></p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Flavours:</h5>
+                                <p class="card-text">Coffee flavors can vary widely, and some coffees are known for their fruity, floral, and sweet notes.</p>
+                            </div>
+                            <img src="~/imagini/flavour.jpg" class="card-img-bottom" alt="...">
+                        </div>
+                    </div>
+
+                    <div id="item-6" class="spatiu" data-aos="zoom-out-up" data-aos-duration="1000">
+                        <!--DROPDOWNLIST PENTRU TIP TOPPING-->
+                        <div class="form-group">
+                            <label asp-for="CafeaClient.TipToppingID" class="control-label">Topping</label>
+                            <select asp-for="CafeaClient.TipToppingID" class="form-control" asp-items="ViewBag.TipToppingID">
+                            </select>
+                            <span asp-validation-for="CafeaClient.TipToppingID" class="text-danger"></span>
+                        </div>
+                        <p></p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Toppings:</h5>
+                                <p class="card-text">Coffee toppings can be used to create a unique and personalized coffee experience. They can add sweetness, depth, and visual appeal to coffee.</p>
+                            </div>
+                            <img src="~/imagini/toppings.jpg" class="card-img-bottom" alt="...">
+                        </div>
+                    </div>
+
+                    <div id="item-7" class="spatiu" data-aos="zoom-out-up" data-aos-duration="1000">
+                        <!--DROPDOWNLIST PENTRU MARIME-->
+                        <div class="form-group">
+                            <label asp-for="CafeaClient.MarimeID" class="control-label">Cup size</label>
+                            <select asp-for="CafeaClient.MarimeID" class="form-control" asp-items="ViewBag.MarimeID">
+                            </select>
+                            <span asp-validation-for="CafeaClient.MarimeID" class="text-danger"></span>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Cup size:</h5>
+                                <p class="card-text">We will randomly select one of your stories to use as the image on the coffee cup</p>
+                                <a asp-page="/Povesti/Index">Go to the "Story" section</a>
+                            </div>
+                            <img src="~/imagini/story3.png" class="card-img-bottom" alt="...">
+                        </div>
+                    </div>
+                    
+                    <div id="item-7" class="spatiu" style="display:none" data-aos="zoom-out-up" data-aos-duration="1000">
+                        <!--DROPDOWNLIST PENTRU Clineti-->
+                        <div class="form-group">
+                            <label asp-for="CafeaClient.ClientID" class="control-label">Client</label>
+                            <select asp-for="CafeaClient.ClientID" class="form-control" asp-items="ViewBag.ClientID">
+                            </select>
+                            <span asp-validation-for="CafeaClient.ClientID" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <p>
+                    <p>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                        <div>
+                            <a asp-page="Index">Back to List</a>
+                        </div>
+                </div>
+            </div>
+          </div>
+        </form>
+    </section>
+
+</body>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

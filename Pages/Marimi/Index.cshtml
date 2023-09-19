@@ -1,0 +1,68 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.Marimi.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/css/IngredienteIndex.css" asp-append-version="true" />
+
+</head>
+<body>
+    <p></p>
+    <h1>Verve Administrator</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-8">
+            <!-- CODUL DE LA TABEL AICI -->
+            <table class="table" data-aos="fade-right" data-aos-duration="1000">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Marime[0].MarimeMl)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Marime[0].Pret)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Marime)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MarimeMl)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Pret)
+                            </td>
+                            <td>
+                                <a class="fa-sharp fa-solid fa-pen" asp-page="./Edit" asp-route-id="@item.ID"></a>
+                                <a class="fa-sharp fa-solid fa-trash" asp-page="./Delete" asp-route-id="@item.ID"></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 300px; margin: 0 auto;" data-aos="fade-left" data-aos-duration="1000">
+                <!-- CODUL DE LA CARD AICI  -->
+                <div class="col">
+                    <div class="card-body">
+                        <h5 class="card-title">Cup sizes</h5>
+                        <p class="card-text">Add new elements ...</p>
+                        <p>
+                        <p></p>
+                        <button type="button" class="btn btn-primary"><a class="link" asp-area="" asp-page="Create">Add a new element</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

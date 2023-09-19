@@ -1,0 +1,25 @@
+﻿body {
+    background: url(/imagini/FundalTabele.png) no-repeat center center fixed;
+    background-size: cover;
+}
+
+table {
+    background-color: #f4eee5;
+}
+
+.btn-group a {
+    text-decoration: none;
+}
+
+.card {
+    margin-top: 100px;
+}
+
+.link{
+    text-decoration: none;
+    color:white;
+}
+
+a:hover {
+    color: white;
+}

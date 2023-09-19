@@ -1,0 +1,39 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.TipuriToppinguri.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/IngredienteDelete.css" asp-append-version="true" />
+</head>
+
+<body>
+    <p></p>
+    <p></p>
+    <div class="title-wrapper">
+        <h1>Delete</h1>
+        <h4> - Topping type</h4>
+    </div>
+    <hr />
+
+    <div class="card text-white bg-primary mb-3 mx-auto" style="max-width: 20rem;">
+        <div class="card-header text-center">Are you sure you want to delete this?</div>
+        <div class="card-body">
+            <div class="card-text">
+                <p class="text-center">Selected element:</p>
+                <div class="text-center">
+                    @Html.DisplayFor(model => model.TipTopping.DenumireTopping)
+                </div>
+            </div>
+            <p></p>
+            <form method="post" class="text-center">
+                <input type="hidden" asp-for="TipTopping.ID" />
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                <a asp-page="./Index">Back to List</a>
+            </form>
+        </div>
+    </div>
+</body>
+

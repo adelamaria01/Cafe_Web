@@ -1,0 +1,49 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.ClientChooseModel
+@{
+}
+<head>
+    <style>
+        .link{
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+    <section>
+        <div class="card-group" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="card">
+                <img src="~/imagini/previous.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">View your previous masterpieces</h5>
+                    <p class="card-text">Are you not in the mood to try something new? You can choose from your previous coffee creations instead.</p>
+                    <button type="button" class="btn btn-primary"><a asp-area="" asp-page="/CafeleClienti/Index" class="link">Yours</a></button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="~/imagini/cup.jpg" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Create your own coffee</h5>
+                    <p class="card-text">We understand that you may have specific preferences when it comes to your coffee. Simply let us know your desired specifications, generate the QR code that will enable us to prepare your coffee exactly as you like it. It's as easy as that!</p>
+                    <p class="card-text"><small class="text-muted">Hey, just a heads up! We will be adding a little story to your coffee</small></p>
+                    <button type="button" class="btn btn-primary"><a asp-area="" asp-page="/CafeleClienti/Create" class="link">Create</a></button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="~/imagini//your.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Tell us your story</h5>
+                    <p class="card-text">We're excited to read your story! Simply send us a brief summary, and we'll feature it on the package of the coffee cup.</p>
+                    <button type="button" class="btn btn-primary"><a asp-area="" asp-page="/Povesti/Index" class="link">Tell us</a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>

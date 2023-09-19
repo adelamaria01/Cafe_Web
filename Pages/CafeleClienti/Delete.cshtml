@@ -1,0 +1,54 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.CafeleClienti.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/CafeleDelete.css" asp-append-version="true" />
+</head>
+
+<body>
+    <!--PRIMA SECTIUNE-->
+    <section>
+        <p></p>
+        <p></p>
+        <div class="title-wrapper">
+            <h1>Delete</h1>
+            <h4> - My coffee</h4>
+        </div>
+        <hr />
+    </section>
+
+    <!--INFORMATII-->
+    <section>
+
+        <div class="card text-white bg-primary mb-3 mx-auto" style="max-width: 20rem;">
+            <div class="card-header text-center">Are you sure you want to delete this?</div>
+            <div class="card-body">
+                <div class="card-text">
+                    <p class="text-center">Selected element:</p>
+                    <div class="text-center">
+                        @Html.DisplayFor(model => model.CafeaClient.DenumireCafea)
+                        @Html.DisplayFor(model => model.CafeaClient.TipCafea.Tip)
+                        @Html.DisplayFor(model => model.CafeaClient.TipBoabe.DenumireBoabe)
+                        @Html.DisplayFor(model => model.CafeaClient.TipLapte.DenumireLapte)
+                        @Html.DisplayFor(model => model.CafeaClient.TipAroma.DenumireAroma)
+                        @Html.DisplayFor(model => model.CafeaClient.TipTopping.DenumireTopping)
+                        @Html.DisplayFor(model => model.CafeaClient.Marime.MarimeMl)
+                    </div>
+                </div>
+                <p></p>
+                <form method="post" class="text-center">
+                    <input type="hidden" asp-for="CafeaClient.ID" />
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    <a asp-page="./Index">Back to List</a>
+                </form>
+            </div>
+        </div>
+        
+    </section>
+    
+</body>
+

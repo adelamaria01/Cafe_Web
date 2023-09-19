@@ -1,0 +1,71 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.AboutModel
+@{
+}
+
+<head>
+    <style>
+        section {
+            margin-bottom: 50px;
+        }
+    </style>
+
+    <script type="text/javascript" src="~/js/emailSender.js"></script>
+    <script src="~/js/contactUs.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("cxTPFV0VQ_fertsGq");
+        })();
+    </script>
+
+</head>
+<body>
+    <p>
+        <section>
+            <div class="container border mt-3 bg-light" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="row" class="col-md-6 border-right py-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <img src="~/imagini/story.jpg" class="card-img-top" alt="...">
+                            <img src="~/imagini/cup.jpg" class="card-img-top" alt="...">
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 border-left py-3">
+                        <h1>Once upon a time...</h1>
+                        <p> Got a hilarious tale to share? Let's turn that into your very own coffee cup comedy! Make someone's day with a good laugh - spill the beans and we'll print it on our cups!</p>
+                        <div class="form-group">
+                            <h5 for="name">Name</h5>
+                            <input type="text" class="form-control" id="nume" value="" placeholder="Enter name" />
+                        </div>
+
+                        <div class="form-group">
+                            <h5 for="email">Email</h5>
+                            <input type="email" class="form-control" id="email" value="" placeholder="Enter email" />
+                        </div>
+
+                        <div class="form-group">
+                            <h5 for="message">My adventure</h5>
+                            <textarea class="form-control" id="message" rows="3" value="" placeholder="My story begins like that: One day a saw something and ..."></textarea>
+                            <p>
+                            <p class="card-text"><small class="text-muted">Hey, just so you know, you can enlarge the text area by dragging the bottom-right corner. Feel free to write me all about it!</small></p>
+                            <p class="card-text"><small class="text-muted">P.S.: You can add links to images too!</small></p>
+                        </div>
+                        <p>
+                        <p>
+                            <button class="btn btn-primary" onclick="Send(); golesteForm()" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <script>
+            function golesteForm() {
+                document.getElementById("nume").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("message").value = "";
+            }
+        </script>
+</body>

@@ -1,0 +1,158 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<head>
+    <style>
+    h5{
+         color:white;
+    }
+
+    section {
+        margin-bottom: 50px;
+    }
+
+    .contact{
+        color: white;
+        text-decoration: none;
+
+    }
+     a:hover{
+         color:white;
+    }
+
+</style>
+
+</head>
+
+<body>
+    <p>
+    <section>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false" id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="~/imagini/img1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                            <button type="button" class="btn btn-primary"><a asp-area="" asp-page="/CafeleClienti/Index" class="contact">Create</a></button>
+                        <p>
+                            <h5>Create your coffee</h5>
+                        <p>Every cup of coffee tells a story.</p>
+                    </div>
+                </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                    <img src="~/imagini/img2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                            <button type="button" class="btn btn-primary"><a asp-area="" asp-page="/Story" class="contact">Story</a></button>
+                        <p>
+                            <h5>Our story</h5>
+                        <p>Get to know us better by reading our source of inspiration.</p>
+                    </div>
+                </div>
+                    <div class="carousel-item">
+                    <img src="~/imagini/img3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                            <button type="button" class="btn btn-primary"><a asp-area="" asp-page="/Quiz" class="contact">Quiz</a></button>
+                        <p>
+                            <h5>Take THE QUIZ</h5>
+                        <p>Not sure which coffee best suits your taste? Take our quiz to help you find the answer!</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+
+    <section>
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                    <p class="mb-0">"As long as there was coffee in the world, how bad could things be?"</p>
+
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    Cassandra Clare <cite title="Source Title">City of Ashes</cite>
+                </figcaption>
+            </figure>
+        </section>
+    <section>
+            <div class="card-group" data-aos="zoom-out-up" data-aos-duration="1000">
+                <div class="card">
+                    <img src="~/imagini/card1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">HAVE YOU</h5>
+                    <p class="card-text">"I absolutely loved this cafe! The atmosphere was cozy and inviting, the coffee was excellent. The staff were friendly and welcoming, and I can't wait to go back."</p>
+                        <p class="card-text"><small class="text-muted">Wilson David</small></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="~/imagini/card2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">HAD YOUR</h5>
+                    <p class="card-text">I had a great experience at this cafe."</p>
+                        <p class="card-text"><small class="text-muted">Crasia Maria</small></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="~/imagini/card3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">COFFEE YET?</h5>
+                    <p class="card-text">"If you're looking for a quiet, relaxed atmosphere to enjoy a cup of coffee, this is the place for you. The decor is simple but stylish, and the coffee is delicious."</p>
+                        <p class="card-text"><small class="text-muted">Iona Cristina</small></p>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <p>
+
+    <section>
+            <div class="card" data-aos="fade-right" data-aos-duration="1000">
+                <div class="card-header">
+                    We are here for you ...
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Do you have any questions?</h5>
+                    <p class="card-text">Address: Main Street, Suite 100</p>
+                    <p class="card-text">Email address: verve.for.people@gmail.com</p>
+                    <p class="card-text">Phone: 456-1356-451</p>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Contact us
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Hello :)</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    I am glad I can help you!
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary"><a class="contact" asp-area="" asp-page="/ContactUs">Now, let's chat</a></button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nevermind, I forgot the question</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    
+</body>

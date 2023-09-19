@@ -1,0 +1,60 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.Povesti.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/css/CafeleEdit.css" asp-append-version="true" />
+</head>
+
+<body>
+    <p></p>
+    <p></p>
+    <div class="title-wrapper">
+        <h1>Create</h1>
+        <h4> - Story</h4>
+
+    </div>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Poveste.ID" />
+                <div class="form-group">
+                    <label asp-for="Poveste.text" class="control-label"></label>
+                    <textarea asp-for="Poveste.text" class="form-control" rows="10" cols="200" placeholder="The story begins like that..."></textarea>
+                    <span asp-validation-for="Poveste.text" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Poveste.NumeClient" class="control-label"></label>
+                    <input asp-for="Poveste.NumeClient" class="form-control" rows="10" cols="200" placeholder="Client name"></input>
+                    <span asp-validation-for="Poveste.NumeClient" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Poveste.Imagine" class="control-label">Image</label>
+                    <input asp-for="Poveste.Imagine" class="form-control" placeholder="Image link" />
+                    <span asp-validation-for="Poveste.Imagine" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a asp-page="./Index">Back to List</a>
+    </div>
+</body>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

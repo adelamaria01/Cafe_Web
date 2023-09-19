@@ -1,0 +1,76 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.AboutModel
+@{
+}
+
+<head>
+    <style>
+        section {
+            margin-bottom: 50px;
+        }
+    </style>
+
+    <script type="text/javascript" src="~/js/emailSender.js"></script>
+    <script src="~/js/contactUs.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("cxTPFV0VQ_fertsGq");
+        })();
+    </script>
+
+</head>
+<body>
+    <p>
+        <section>
+            <div class="container border mt-3 bg-light" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="row" class="col-md-6 border-right py-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <img src="~/imagini/wave.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-title">So, you really do have a question :)</h3>
+                                <p>
+                                    <h4 class="card-text">We love coffee talk!</h4>
+                                <p>
+                                <p class="card-text">Address: Main Street, Suite 100</p>
+                                <p class="card-text">Email address: verve@gmail.com</p>
+                                <p class="card-text">Phone: 456-1356-451</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 border-left py-3">
+                        <h1>Contact us</h1>                    
+                        <div class="form-group">
+                            <h5 for="name">Name</h5>
+                            <input type="text" class="form-control" id="nume" value="" placeholder="Enter name" />
+                        </div>
+
+                        <div class="form-group">
+                            <h5 for="email">Email</h5>
+                            <input type="email" class="form-control" id="email" value="" placeholder="Enter email" />
+                        </div>
+
+                        <div class="form-group">
+                            <h5 for="message">Message</h5>
+                            <textarea class="form-control" id="message" rows="3" value="" placeholder="Your question / your review ... whatever you want"></textarea>
+                            <p>
+                            <p class="card-text"><small class="text-muted">Hey, just so you know, you can enlarge the text area by dragging the bottom-right corner. Feel free to write me all about it!</small></p>
+                        </div>
+                        <p>
+                        <p>
+                            <button class="btn btn-primary" onclick="Send(); golesteForm()" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <script>
+            function golesteForm() {
+                document.getElementById("nume").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("message").value = "";
+            }
+        </script>
+</body>

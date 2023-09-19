@@ -1,0 +1,14 @@
+﻿body {
+    background: url(/imagini/EditCafele.png) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.butoane {
+    display: flex;
+    align-items: center;
+}

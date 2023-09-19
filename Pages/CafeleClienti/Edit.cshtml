@@ -1,0 +1,111 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.CafeleClienti.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/CafeleEdit.css" asp-append-version="true" />
+</head>
+
+<body>
+    <!--SECTIUNE PENTRU HEADER-->
+    <section>
+        <p></p>
+        <p></p>
+        <div class="title-wrapper">
+            <h1>Edit</h1>
+            <h4> - My coffee</h4>
+        </div>
+        <hr />
+    </section>
+
+    <section>
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="CafeaClient.ID" />
+                    <div class="form-group">
+                        <label asp-for="CafeaClient.DenumireCafea" class="control-label"></label>
+                        <input asp-for="CafeaClient.DenumireCafea" class="form-control" placeholder="Coffee name" />
+                        <span asp-validation-for="CafeaClient.DenumireCafea" class="text-danger"></span>
+                    </div>
+                    <!--DROPDOWNLIST PENTRU TIP CAFEA-->
+                    <div class="form-group">
+                        <label asp-for="CafeaClient.TipCafeaID" class="control-label">Coffee type</label>
+                        <select asp-for="CafeaClient.TipCafeaID" class="form-control" asp-items="ViewBag.TipCafeaID">
+                        </select>
+                        <span asp-validation-for="CafeaClient.TipCafeaID" class="text-danger"></span>
+                    </div>
+
+                    <!--DROPDOWNLIST PENTRU TIP BOABE-->
+                    <div class="form-group">
+                        <label asp-for="CafeaClient.TipBoabeID" class="control-label">Beans</label>
+                        <select asp-for="CafeaClient.TipBoabeID" class="form-control" asp-items="ViewBag.TipBoabeID">
+                        </select>
+                        <span asp-validation-for="CafeaClient.TipBoabeID" class="text-danger"></span>
+                    </div>
+
+                    <!--DROPDOWNLIST PENTRU TIP LAPTE-->
+                    <div class="form-group">
+                        <label asp-for="CafeaClient.TipLapteID" class="control-label">Milk</label>
+                        <select asp-for="CafeaClient.TipLapteID" class="form-control" asp-items="ViewBag.TipLapteID">
+                        </select>
+                        <span asp-validation-for="CafeaClient.TipLapteID" class="text-danger"></span>
+                    </div>
+
+                    <!--DROPDOWNLIST PENTRU TIP AROMA-->
+                    <div class="form-group">
+                        <label asp-for="CafeaClient.TipAromaID" class="control-label">Flavour</label>
+                        <select asp-for="CafeaClient.TipAromaID" class="form-control" asp-items="ViewBag.TipAromaID">
+                        </select>
+                        <span asp-validation-for="CafeaClient.TipAromaID" class="text-danger"></span>
+                    </div>
+
+                    <!--DROPDOWNLIST PENTRU TIP TOPPING-->
+                    <div class="form-group">
+                        <label asp-for="CafeaClient.TipToppingID" class="control-label">Topping</label>
+                        <select asp-for="CafeaClient.TipToppingID" class="form-control" asp-items="ViewBag.TipToppingID">
+                        </select>
+                        <span asp-validation-for="CafeaClient.TipToppingID" class="text-danger"></span>
+                    </div>
+                    <!--DROPDOWNLIST PENTRU MARIME-->
+                    <div class="form-group">
+                        <label asp-for="CafeaClient.MarimeID" class="control-label">Cup size</label>
+                        <select asp-for="CafeaClient.MarimeID" class="form-control" asp-items="ViewBag.MarimeID">
+                        </select>
+                        <span asp-validation-for="CafeaClient.MarimeID" class="text-danger"></span>
+                    </div>
+
+                    <div id="item-7" class="spatiu">
+                        <!--DROPDOWNLIST PENTRU Clineti-->
+                        <div class="form-group">
+                            <label asp-for="CafeaClient.ClientID" class="control-label">Client</label>
+                            <select asp-for="CafeaClient.ClientID" class="form-control" asp-items="ViewBag.ClientID">
+                            </select>
+                            <span asp-validation-for="CafeaClient.ClientID" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <p>
+                    <p>
+                        <div class="form-group text-center">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a asp-page="./Index">Back to List</a>
+        </div>
+</body>
+    </section>
+    
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

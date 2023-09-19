@@ -1,0 +1,88 @@
+﻿@page
+@model Kovacs_Adela_Licenta.Pages.Clienti.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/IngredienteIndex.css" asp-append-version="true" />
+</head>
+
+<body>
+    <p></p>
+    <h1>Verve Administrator</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-8">
+            <!-- CODUL DE LA TABEL AICI -->
+            <table class="table" data-aos="fade-right" data-aos-duration="1000">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Client[0].Nume)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Client[0].Prenume)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Client[0].Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Client[0].Telefon)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.CafeaD.Client)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nume)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Prenume)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Telefon)
+                            </td>
+                            <td>
+                                <a class="fa-sharp fa-solid fa-pen" asp-page="./Edit" asp-route-id="@item.ID"></a>
+                                <a class="fa-sharp fa-solid fa-trash" asp-page="./Delete" asp-route-id="@item.ID"></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 300px; margin: 0 auto;" data-aos="fade-left" data-aos-duration="1000">
+                <!-- CODUL DE LA CARD AICI  -->
+                <div class="col">
+                    <div class="card-body">
+                        <h5 class="card-title">Members</h5>
+                        <p>
+                           <form asp-page="./Index" method="get">
+                               <div class="form-actions no-color">
+                                    <p>
+                                        Find member by name:
+                                        <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+                                        <p></p>
+                                        <input type="submit" value="Search" class="btn btn-primary" /> |
+                                        <a asp-page="./Index">Back to full List</a>
+                                    </p>
+                               </div>
+                           </form>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
